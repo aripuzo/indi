@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>indi — In-house software, shipped.</title>
-<meta name="description" content="Indi is a technology company that specializes in building in-house tech products and providing tech services for businesses." />
+<title>indi — Software, shipped.</title>
+<meta name="description" content="indi builds the in-house software ambitious businesses can't buy off the shelf. Product studio, Lagos." />
 <link rel="shortcut icon" href="assets/favicon/favicon-32x32.png" />
 <link rel="apple-touch-icon" sizes="180x180" href="assets/favicon/apple-touch-icon.png" />
 <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon/favicon-32x32.png" />
@@ -13,499 +13,324 @@
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600&family=Instrument+Serif:ital@0;1&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
-<link rel="stylesheet" href="assets/css/indi-redesign.css" />
+<link rel="stylesheet" href="assets/css/indi-v3.css" />
 </head>
 <body>
 
-<!-- Curtain reveal -->
-<div id="curtain"><span class="curtain-wordmark">in<em>di</em></span></div>
+<!-- Film grain -->
+<div class="grain"></div>
 
-<!-- Cursor spotlight -->
-<div id="cursor-spotlight"></div>
+<!-- Ambient orb -->
+<div class="orb" id="orb"></div>
 
-<!-- Scroll progress bar -->
-<div id="scroll-bar"></div>
+<!-- Custom cursor -->
+<div class="cursor-dot" id="cursorDot"></div>
+<div class="cursor-ring" id="cursorRing"></div>
+
+<!-- Preloader -->
+<div class="preloader" id="preloader">
+  <div class="word"><span>indi — lagos</span></div>
+  <div class="pct" id="preloaderPct">0<em>%</em></div>
+</div>
 
 <!-- NAV -->
-<nav class="nav" id="zb-header">
+<nav class="nav" id="nav">
   <div class="shell nav-row">
     <a href="#top" class="nav-logo" aria-label="indi home">
-      <img src="assets/images/indi-logo.png" alt="indi" class="nav-logo-img" />
+      <img src="assets/images/indi-logo.png" alt="indi" />
     </a>
     <div class="nav-links">
       <a href="#work">Work</a>
       <a href="#services">Services</a>
-      <a href="#about">Studio</a>
+      <a href="#studio">Studio</a>
       <a href="#contact">Contact</a>
     </div>
-    <a href="#contact" class="nav-cta">Start a project
-      <svg class="arrow" width="14" height="14" viewBox="0 0 14 14" fill="none">
-        <path d="M3 11L11 3M11 3H4M11 3V10" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
-      </svg>
-    </a>
-    <button class="nav-burger" aria-label="Menu" aria-expanded="false" id="navBurger">
-      <span></span><span></span>
-    </button>
-  </div>
-  <div class="nav-mobile" id="navMobile">
-    <a href="#work">Work</a>
-    <a href="#services">Services</a>
-    <a href="#about">Studio</a>
-    <a href="#contact">Contact</a>
+    <div class="nav-time" id="navTime">Lagos — 00:00</div>
   </div>
 </nav>
 
 <!-- HERO -->
-<header class="hero" id="top">
-  <div class="shell">
-    <div class="hero-meta">
-      <div class="meta-item">indi/<br /><span>Lagos · NG</span></div>
-      <div class="meta-item">Est.<br /><span>2018</span></div>
-      <div class="meta-item">Now<br /><span><span class="meta-dot">●</span> Booking Q3 '26</span></div>
-    </div>
-
-    <h1 class="hero-mega">
-      <span class="row"><span class="word">In&shy;house</span></span>
-      <span class="row hero-row-2"><span class="word"><em>software,</em></span></span>
-      <span class="row hero-row-3"><span class="word lead">shipped.</span></span>
+<header class="hero shell" id="top">
+  <div>
+    <div class="hero-label">Product studio — Lagos, NG</div>
+    <h1 class="hero-mega" aria-label="Software, shipped." id="heroMega">
+      <span class="ln" id="heroLine1"></span>
+      <span class="ln ln-2" id="heroLine2"></span>
     </h1>
-
-    <div class="hero-foot">
-      <div class="scroll-cue"><span>Scroll</span> <span class="arr"></span></div>
-      <div class="hero-ctas">
-        <a href="#work" class="btn btn-ghost">See the work</a>
-        <a href="#contact" class="btn btn-primary">Start a project
-          <svg class="arrow" width="14" height="14" viewBox="0 0 14 14" fill="none">
-            <path d="M3 11L11 3M11 3H4M11 3V10" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
-          </svg>
+    <div class="hero-base">
+      <p class="tag"><b>indi</b> builds the in-house software ambitious businesses can&rsquo;t buy off the shelf.</p>
+      <div id="magWrap" style="will-change:transform;width:fit-content">
+        <a href="#contact" class="btn-mag">
+          <span class="fill"></span>
+          <span class="lbl">Start a project</span>
         </a>
       </div>
     </div>
   </div>
-
-  <div class="marquee">
-    <div class="marquee-track">
-      <span>Mobile</span><span class="star">&#9733;</span>
-      <span><em>NFC</em></span><span class="star">&#9733;</span>
-      <span>Web</span><span class="star">&#9733;</span>
-      <span><em>Wearables</em></span><span class="star">&#9733;</span>
-      <span>Enterprise</span><span class="star">&#9733;</span>
-      <span><em>IoT</em></span><span class="star">&#9733;</span>
-      <span>Payments</span><span class="star">&#9733;</span>
-      <span>Mobile</span><span class="star">&#9733;</span>
-      <span><em>NFC</em></span><span class="star">&#9733;</span>
-      <span>Web</span><span class="star">&#9733;</span>
-      <span><em>Wearables</em></span><span class="star">&#9733;</span>
-      <span>Enterprise</span><span class="star">&#9733;</span>
-      <span><em>IoT</em></span><span class="star">&#9733;</span>
-      <span>Payments</span><span class="star">&#9733;</span>
-    </div>
-  </div>
 </header>
 
-<!-- ABOUT -->
-<section id="about" class="section">
-  <div class="shell">
-    <div class="section-head reveal">
-      <span class="eyebrow"><span class="dot"></span>The studio</span>
-      <span class="num"><span class="gold">01</span> &nbsp;/&nbsp; 04</span>
-    </div>
+<!-- VELOCITY MARQUEE -->
+<div class="vmarquee">
+  <div class="vmarquee-track" id="marqueeTrack">
+    <span>Mobile</span><span class="sp">◆</span>
+    <em>NFC</em><span class="sp">◆</span>
+    <span>Web</span><span class="sp">◆</span>
+    <em>Wearables</em><span class="sp">◆</span>
+    <span>Enterprise</span><span class="sp">◆</span>
+    <em>IoT</em><span class="sp">◆</span>
+    <span>Payments</span><span class="sp">◆</span>
+    <span>Mobile</span><span class="sp">◆</span>
+    <em>NFC</em><span class="sp">◆</span>
+    <span>Web</span><span class="sp">◆</span>
+    <em>Wearables</em><span class="sp">◆</span>
+    <span>Enterprise</span><span class="sp">◆</span>
+    <em>IoT</em><span class="sp">◆</span>
+    <span>Payments</span><span class="sp">◆</span>
+  </div>
+</div>
 
-    <div class="about-bignum reveal reveal-delay-1">
-      Forty<em>+</em><br />
-      products,<br />
-      <em>one</em> studio<span class="small">/lagos</span>
+<!-- STUDIO -->
+<section class="sec shell" id="studio">
+  <div class="sec-head">
+    <span class="sec-label">The studio</span>
+    <span class="idx"><em>01</em> — 04</span>
+  </div>
+  <p class="about-state" id="studioStatement">
+    <span class="dim">Eight years.</span> <span class="dim">Forty products.</span> <span class="dim">One obsession —</span> <em>software that ships.</em>
+  </p>
+  <div class="about-figures">
+    <div class="fig">
+      <div class="n"><span class="counter" data-to="40" data-dur="1600">0</span><em>+</em></div>
+      <div class="d">Products shipped</div>
     </div>
-
-    <div class="about-strip reveal reveal-delay-2">
-      <div class="cell">
-        <div class="k"><span class="gold" data-count="8" data-suffix="yr">8yr</span></div>
-        <div class="v">Building</div>
-      </div>
-      <div class="cell">
-        <div class="k" data-count="12" data-suffix="">12</div>
-        <div class="v">Engineers</div>
-      </div>
-      <div class="cell">
-        <div class="k"><span data-count="3" data-suffix="">3</span><span class="gold">·</span></div>
-        <div class="v">Continents</div>
-      </div>
-      <div class="cell">
-        <div class="k"><span class="gold">&#8734;</span></div>
-        <div class="v">Coffee</div>
-      </div>
+    <div class="fig">
+      <div class="n"><span class="counter" data-to="12" data-dur="1300">0</span></div>
+      <div class="d">Senior engineers</div>
+    </div>
+    <div class="fig">
+      <div class="n"><span class="counter" data-to="3" data-dur="1000">0</span></div>
+      <div class="d">Continents</div>
     </div>
   </div>
 </section>
 
 <!-- SERVICES -->
-<section id="services" class="section">
-  <div class="shell">
-    <div class="section-head reveal">
-      <span class="eyebrow"><span class="dot"></span>What we make</span>
-      <span class="num"><span class="gold">02</span> &nbsp;/&nbsp; 04</span>
+<section class="sec shell" id="services">
+  <div class="sec-head">
+    <span class="sec-label">What we make</span>
+    <span class="idx"><em>02</em> — 04</span>
+  </div>
+  <div class="svc-list">
+    <div class="rv">
+      <a class="svc-row" href="#contact">
+        <span class="bg"></span>
+        <span class="no">/01</span>
+        <span class="ttl">Mobile <em>&amp;</em> Web</span>
+        <span class="hint">Enquire <svg width="11" height="11" viewBox="0 0 14 14" fill="none"><path d="M3 11L11 3M11 3H4M11 3V10" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+      </a>
     </div>
-    <div class="svc-list reveal reveal-delay-1">
+    <div class="rv" style="transition-delay:90ms">
       <a class="svc-row" href="#contact">
-        <div class="svc-num">— 01</div>
-        <div class="svc-title">Mobile <em>&amp; Web</em></div>
-        <div class="svc-arrow">
-          <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
-            <path d="M5 15L15 5M15 5H7M15 5V13" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-          </svg>
-        </div>
+        <span class="bg"></span>
+        <span class="no">/02</span>
+        <span class="ttl">NFC <em>&amp;</em> Wearables</span>
+        <span class="hint">Enquire <svg width="11" height="11" viewBox="0 0 14 14" fill="none"><path d="M3 11L11 3M11 3H4M11 3V10" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
       </a>
+    </div>
+    <div class="rv" style="transition-delay:180ms">
       <a class="svc-row" href="#contact">
-        <div class="svc-num">— 02</div>
-        <div class="svc-title">NFC <em>&amp; Wearables</em></div>
-        <div class="svc-arrow">
-          <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
-            <path d="M5 15L15 5M15 5H7M15 5V13" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-          </svg>
-        </div>
-      </a>
-      <a class="svc-row" href="#contact">
-        <div class="svc-num">— 03</div>
-        <div class="svc-title">Enterprise <em>Systems</em></div>
-        <div class="svc-arrow">
-          <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
-            <path d="M5 15L15 5M15 5H7M15 5V13" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-          </svg>
-        </div>
+        <span class="bg"></span>
+        <span class="no">/03</span>
+        <span class="ttl">Enterprise <em>Systems</em></span>
+        <span class="hint">Enquire <svg width="11" height="11" viewBox="0 0 14 14" fill="none"><path d="M3 11L11 3M11 3H4M11 3V10" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
       </a>
     </div>
   </div>
 </section>
 
-<!-- PORTFOLIO -->
-<section id="work" class="section">
-  <div class="shell">
-    <div class="section-head reveal">
-      <span class="eyebrow"><span class="dot"></span>Selected work</span>
-      <span class="num"><span class="gold">03</span> &nbsp;/&nbsp; 04</span>
-    </div>
+<!-- WORK -->
+<section class="sec shell" id="work">
+  <div class="sec-head">
+    <span class="sec-label">Selected work</span>
+    <span class="idx"><em>03</em> — 04</span>
   </div>
-  <div class="shell">
-    <div class="case-reel">
+  <div>
 
-      <!-- Classfun -->
-      <a class="case-card reveal" href="https://useclassfun.com" target="_blank" rel="noreferrer">
-        <div class="case-meta-row">
-          <span>— 01 / Mobile · Web</span>
-          <span>2024</span>
+    <!-- 01 Classfun -->
+    <div class="work-item">
+      <div class="work-info">
+        <span class="rv-line work-no"><span>/01</span></span>
+        <h3 class="rv-line work-name"><span style="transition-delay:80ms">Class<em>fun</em></span></h3>
+        <span class="rv-line work-kind"><span style="transition-delay:160ms">Mobile · 500+ schools</span></span>
+        <div class="rv" style="transition-delay:240ms">
+          <a class="work-visit" href="https://useclassfun.com" target="_blank" rel="noreferrer">
+            useclassfun.com
+            <svg width="13" height="13" viewBox="0 0 14 14" fill="none"><path d="M3 11L11 3M11 3H4M11 3V10" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </a>
         </div>
-        <div class="case-name">Class<em>fun</em></div>
-        <div class="case-visual-wrap">
-          <div class="case-visual case-visual--classfun">
-            <div class="cv-phone">
-              <div class="cv-phone-bar">
-                <span>9:41</span><span>●●●</span>
-              </div>
-              <div class="cv-phone-screen">
-                <div class="cv-phone-greeting">Hi, Adaeze</div>
-                <div class="cv-phone-date">Tuesday, 8 Apr</div>
-                <div class="cv-card cv-card--amber">
-                  <div>
-                    <div class="cv-label-sm cv-label--amber">Checked in</div>
-                    <div class="cv-sub">Tomi · 8:14am</div>
-                  </div>
-                  <div class="cv-dot"></div>
-                </div>
-                <div class="cv-card cv-card--grey">
-                  <div class="cv-label-sm">Pickup at 3:00pm</div>
-                  <div class="cv-sub">By: Mrs. Okafor</div>
-                </div>
-                <div class="cv-card cv-card--grey cv-card--empty"></div>
-                <div class="cv-card cv-card--dark">Announce arrival</div>
-              </div>
+      </div>
+      <div class="work-frame">
+        <div class="plate">
+          <div class="shot-frame">
+            <div class="shot-chrome">
+              <div class="shot-dots"><span></span><span></span><span></span></div>
+              <div class="shot-url">useclassfun.com</div>
             </div>
-            <div class="cv-corner-label">iOS · Android</div>
-            <div class="cv-bottom-label" style="color:var(--gold)">classfun</div>
-          </div>
-        </div>
-        <div class="case-foot">
-          <div class="case-pills">
-            <span class="case-pill">iOS</span>
-            <span class="case-pill">Android</span>
-          </div>
-          <span class="case-link">Visit
-            <svg class="arrow" width="14" height="14" viewBox="0 0 14 14" fill="none">
-              <path d="M3 11L11 3M11 3H4M11 3V10" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
-            </svg>
-          </span>
-        </div>
-      </a>
-
-      <!-- GlobalTravel -->
-      <!-- <a class="case-card reveal reveal-delay-1" href="https://www.globaltravelwallet.com" target="_blank" rel="noreferrer">
-        <div class="case-meta-row">
-          <span>— 02 / NFC · Mobile</span>
-          <span>2025</span>
-        </div>
-        <div class="case-name">Global<em>Travel</em></div>
-        <div class="case-visual-wrap">
-          <div class="case-visual case-visual--travel">
-            <div class="cv-cards">
-              <div class="cv-card-behind"></div>
-              <div class="cv-card-front">
-                <div class="cv-card-front-top">
-                  <span class="cv-card-brand">global<em>travel</em></span>
-                  <div class="cv-chip"></div>
-                </div>
-                <div class="cv-card-front-bot">
-                  <div class="cv-card-num">•••• 4218</div>
-                  <div class="cv-card-currencies">NGN · USD · GBP · EUR</div>
-                </div>
-              </div>
+            <div class="shot-img">
+              <img src="assets/images/shots/classfun.png" alt="Classfun — school management platform" loading="lazy" />
             </div>
-            <div class="cv-corner-label">Multi-currency · NFC</div>
-            <div class="cv-bottom-label cv-bottom-label--right">global<em>travel</em><br /><span style="font-size:0.55em;opacity:0.5;font-style:normal">wallet</span></div>
           </div>
         </div>
-        <div class="case-foot">
-          <div class="case-pills">
-            <span class="case-pill">Multi-currency</span>
-            <span class="case-pill">NFC</span>
-          </div>
-          <span class="case-link">Visit
-            <svg class="arrow" width="14" height="14" viewBox="0 0 14 14" fill="none">
-              <path d="M3 11L11 3M11 3H4M11 3V10" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
-            </svg>
-          </span>
-        </div>
-      </a> -->
-
-      <!-- Earlybean -->
-      <a class="case-card reveal reveal-delay-2" href="https://earlybean.co" target="_blank" rel="noreferrer">
-        <div class="case-meta-row">
-          <span>— 03 / Web · Subscriptions</span>
-          <span>2023</span>
-        </div>
-        <div class="case-name">Early<em>bean</em></div>
-        <div class="case-visual-wrap">
-          <div class="case-visual case-visual--earlybean">
-            <div class="cv-browser">
-              <div class="cv-browser-bar">
-                <div class="cv-browser-dots"><span></span><span></span><span></span></div>
-                <div class="cv-browser-url">earlybean.co</div>
-              </div>
-              <div class="cv-browser-content">
-                <div class="cv-browser-sidebar">
-                  <div class="cv-sidebar-logo">earlybean</div>
-                  <div class="cv-sidebar-label">WORKSPACE</div>
-                  <div class="cv-sidebar-link cv-sidebar-link--active">Dashboard</div>
-                  <div class="cv-sidebar-link">Roasters</div>
-                  <div class="cv-sidebar-link">Orders</div>
-                  <div class="cv-sidebar-link">Subscriptions</div>
-                </div>
-                <div class="cv-browser-main">
-                  <div class="cv-browser-greeting">Good <em>morning</em></div>
-                  <div class="cv-stat-grid">
-                    <div class="cv-stat">
-                      <div class="cv-stat-label">Active subs</div>
-                      <div class="cv-stat-val">1,284</div>
-                    </div>
-                    <div class="cv-stat">
-                      <div class="cv-stat-label">This week</div>
-                      <div class="cv-stat-val cv-stat-val--gold">+218</div>
-                    </div>
-                  </div>
-                  <div class="cv-bars">
-                    <div class="cv-bar" style="height:40%"></div>
-                    <div class="cv-bar cv-bar--gold" style="height:65%"></div>
-                    <div class="cv-bar" style="height:50%"></div>
-                    <div class="cv-bar cv-bar--gold" style="height:85%"></div>
-                    <div class="cv-bar" style="height:60%"></div>
-                    <div class="cv-bar cv-bar--gold" style="height:95%"></div>
-                    <div class="cv-bar" style="height:70%"></div>
-                    <div class="cv-bar" style="height:45%"></div>
-                    <div class="cv-bar cv-bar--gold" style="height:80%"></div>
-                    <div class="cv-bar" style="height:60%"></div>
-                    <div class="cv-bar cv-bar--gold" style="height:90%"></div>
-                    <div class="cv-bar" style="height:55%"></div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="cv-corner-label">Web · Subscriptions</div>
-          </div>
-        </div>
-        <div class="case-foot">
-          <div class="case-pills">
-            <span class="case-pill">Marketplace</span>
-            <span class="case-pill">Stripe</span>
-          </div>
-          <span class="case-link">Visit
-            <svg class="arrow" width="14" height="14" viewBox="0 0 14 14" fill="none">
-              <path d="M3 11L11 3M11 3H4M11 3V10" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
-            </svg>
-          </span>
-        </div>
-      </a>
-
-      <!-- House of Awesome -->
-      <a class="case-card reveal reveal-delay-3" href="https://houseofawesome.com.ng" target="_blank" rel="noreferrer">
-        <div class="case-meta-row">
-          <span>— 04 / E-commerce</span>
-          <span>2022</span>
-        </div>
-        <div class="case-name">House of <em>Awesome</em></div>
-        <div class="case-visual-wrap">
-          <div class="case-visual case-visual--hoa">
-            <div class="cv-product-grid">
-              <div class="cv-product" style="background:#04112f"><span class="cv-product-label">JACKET</span></div>
-              <div class="cv-product" style="background:#F5A623">
-                <span class="cv-product-badge">NEW</span>
-                <span class="cv-product-label cv-product-label--dark">BAG</span>
-              </div>
-              <div class="cv-product" style="background:#5d4a32"><span class="cv-product-label">SHOE</span></div>
-              <div class="cv-product" style="background:#8a6a3e"><span class="cv-product-label">TOP</span></div>
-              <div class="cv-product" style="background:#04112f"><span class="cv-product-label">TROUSER</span></div>
-              <div class="cv-product" style="background:#c4b896"><span class="cv-product-label cv-product-label--dark">CAP</span></div>
-            </div>
-            <div class="cv-corner-label cv-corner-label--dark">E-commerce · Inventory</div>
-            <div class="cv-bottom-label cv-bottom-label--right cv-bottom-label--dark">House of<br /><em>Awesome</em></div>
-          </div>
-        </div>
-        <div class="case-foot">
-          <div class="case-pills">
-            <span class="case-pill">Shopify</span>
-            <span class="case-pill">CMS</span>
-          </div>
-          <span class="case-link">Visit
-            <svg class="arrow" width="14" height="14" viewBox="0 0 14 14" fill="none">
-              <path d="M3 11L11 3M11 3H4M11 3V10" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
-            </svg>
-          </span>
-        </div>
-      </a>
-
+        <div class="veil"></div>
+      </div>
     </div>
+
+    <!-- 02 Bloomdata / FastFuel -->
+    <div class="work-item">
+      <div class="work-info">
+        <span class="rv-line work-no"><span>/02</span></span>
+        <h3 class="rv-line work-name"><span style="transition-delay:80ms">Bloom<em>data</em></span></h3>
+        <span class="rv-line work-kind"><span style="transition-delay:160ms">FastFuel · Fuel credit</span></span>
+        <div class="rv" style="transition-delay:240ms">
+          <a class="work-visit" href="https://bloomdata.ng" target="_blank" rel="noreferrer">
+            bloomdata.ng
+            <svg width="13" height="13" viewBox="0 0 14 14" fill="none"><path d="M3 11L11 3M11 3H4M11 3V10" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </a>
+        </div>
+      </div>
+      <div class="work-frame">
+        <div class="plate">
+          <div class="shot-frame">
+            <div class="shot-chrome">
+              <div class="shot-dots"><span></span><span></span><span></span></div>
+              <div class="shot-url">bloomdata.ng</div>
+            </div>
+            <div class="shot-img">
+              <img src="assets/images/shots/bloomdata.png" alt="Bloomdata — FastFuel fuel credit platform" loading="lazy" />
+            </div>
+          </div>
+        </div>
+        <div class="veil"></div>
+      </div>
+    </div>
+
+    <!-- 03 Earlybean -->
+    <div class="work-item">
+      <div class="work-info">
+        <span class="rv-line work-no"><span>/03</span></span>
+        <h3 class="rv-line work-name"><span style="transition-delay:80ms">Early<em>bean</em></span></h3>
+        <span class="rv-line work-kind"><span style="transition-delay:160ms">Web · Subscriptions</span></span>
+        <div class="rv" style="transition-delay:240ms">
+          <a class="work-visit" href="https://earlybean.co" target="_blank" rel="noreferrer">
+            earlybean.co
+            <svg width="13" height="13" viewBox="0 0 14 14" fill="none"><path d="M3 11L11 3M11 3H4M11 3V10" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </a>
+        </div>
+      </div>
+      <div class="work-frame">
+        <div class="plate">
+          <div class="shot-frame">
+            <div class="shot-chrome">
+              <div class="shot-dots"><span></span><span></span><span></span></div>
+              <div class="shot-url">earlybean.co</div>
+            </div>
+            <div class="shot-img">
+              <img src="assets/images/shots/earlybean.png" alt="Earlybean — coffee subscription marketplace" loading="lazy" />
+            </div>
+          </div>
+        </div>
+        <div class="veil"></div>
+      </div>
+    </div>
+
+    <!-- 04 House of Awesome -->
+    <div class="work-item">
+      <div class="work-info">
+        <span class="rv-line work-no"><span>/04</span></span>
+        <h3 class="rv-line work-name"><span style="transition-delay:80ms">House of <em>Awesome</em></span></h3>
+        <span class="rv-line work-kind"><span style="transition-delay:160ms">E-commerce · Lagos</span></span>
+        <div class="rv" style="transition-delay:240ms">
+          <a class="work-visit" href="https://houseofawesome.com.ng" target="_blank" rel="noreferrer">
+            houseofawesome.com.ng
+            <svg width="13" height="13" viewBox="0 0 14 14" fill="none"><path d="M3 11L11 3M11 3H4M11 3V10" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </a>
+        </div>
+      </div>
+      <div class="work-frame">
+        <div class="plate">
+          <div class="shot-frame">
+            <div class="shot-chrome">
+              <div class="shot-dots"><span></span><span></span><span></span></div>
+              <div class="shot-url">houseofawesome.com.ng</div>
+            </div>
+            <div class="shot-img">
+              <img src="assets/images/shots/houseofawesome.png" alt="House of Awesome — fashion e-commerce" loading="lazy" />
+            </div>
+          </div>
+        </div>
+        <div class="veil"></div>
+      </div>
+    </div>
+
   </div>
 </section>
 
-<!-- TESTIMONIALS -->
-<section class="section" id="testimonials">
-  <div class="shell">
-    <div class="section-head reveal">
-      <span class="eyebrow"><span class="dot"></span>From founders</span>
-      <span class="num"><span class="gold">04</span> &nbsp;/&nbsp; 04</span>
-    </div>
-    <div class="quote-carousel reveal reveal-delay-1">
-      <div class="quote-big" data-index="0">
-        &ldquo;<em>Same brief,</em> half the timeline,<br /><em>twice</em> the polish.&rdquo;
-      </div>
-      <div class="quote-big quote-big--hidden" data-index="1">
-        &ldquo;They behave <em>like co-founders.</em><br />Skin in the game from day one.&rdquo;
-      </div>
-      <div class="quote-big quote-big--hidden" data-index="2">
-        &ldquo;The only internal tool our<br />ops team <em>actually</em> likes.&rdquo;
-      </div>
-    </div>
-    <div class="quote-foot">
-      <div class="quote-who" id="quoteWho">
-        <span class="who">Tomi A.</span>
-        <span style="color:var(--mute)"> · Founder · Classfun</span>
-      </div>
-      <div class="quote-dots">
-        <button class="quote-dot active" data-q="0" aria-label="Quote 1"></button>
-        <button class="quote-dot" data-q="1" aria-label="Quote 2"></button>
-        <button class="quote-dot" data-q="2" aria-label="Quote 3"></button>
-      </div>
+<!-- QUOTE -->
+<section class="sec shell quote-sec" id="voices">
+  <div class="sec-head">
+    <span class="sec-label">From founders</span>
+    <span class="idx"><em>04</em> — 04</span>
+  </div>
+  <div class="rv">
+    <blockquote class="quote-mega" id="quoteMega"></blockquote>
+    <div class="quote-by">
+      <span class="ln"></span>
+      <b id="quoteWho"></b><span id="quoteRole"></span>
+      <div class="quote-nav" id="quoteNav"></div>
     </div>
   </div>
 </section>
 
 <!-- CONTACT -->
-<section class="contact" id="contact">
-  <div class="shell">
-    <div class="section-head">
-      <span class="eyebrow"><span class="dot"></span>Let's build</span>
-      <span class="num"><span class="gold">05</span></span>
-    </div>
-    <div class="contact-mega reveal reveal-delay-1">
-      Got a brief?<br />
-      <em><a href="mailto:hello@indi.com.ng">hello@<br />indi.com.ng</a></em>
-    </div>
-
-    <div class="contact-info">
-      <div>
-        <div class="lbl">Studio</div>
-        <div class="val">Megamound,<br />Ikate-Elegushi, Lagos</div>
-      </div>
-      <div>
-        <div class="lbl">Phone</div>
-        <div class="val"><a href="tel:+2349117015649">+234 911 701 5649</a></div>
-      </div>
-      <div>
-        <div class="lbl">Elsewhere</div>
-        <div class="val">
-          <a href="https://linkedin.com" target="_blank" rel="noreferrer">LinkedIn</a> ·
-          <a href="https://github.com" target="_blank" rel="noreferrer">GitHub</a> ·
-          <a href="https://x.com" target="_blank" rel="noreferrer">X</a>
-        </div>
-      </div>
-    </div>
-
-    <footer>
-      <div class="footer-row">
-        <div>&copy; 2026 indi technologies ltd</div>
-        <div>RC 1684892</div>
-        <div><a href="#">Privacy</a> · <a href="#">Terms</a></div>
-      </div>
-    </footer>
+<section class="sec shell contact-sec" id="contact">
+  <div class="sec-head">
+    <span class="sec-label">New business</span>
+    <span class="idx"><em>05</em></span>
   </div>
+  <h2 class="contact-mega">
+    <span class="rv-line"><span>Got a brief?</span></span>
+    <em><span class="rv-line" style="transition-delay:140ms"><span><a href="mailto:hello@indi.com.ng">Say hello.</a></span></span></em>
+  </h2>
+  <div class="contact-rows">
+    <div class="col">
+      <div class="lbl">Studio</div>
+      <div class="val">Megamound, Ikate-Elegushi,<br />Lagos, Nigeria</div>
+    </div>
+    <div class="col">
+      <div class="lbl">Direct</div>
+      <div class="val">
+        <a href="mailto:hello@indi.com.ng">hello@indi.com.ng</a><br />
+        <a href="tel:+2349117015649">+234 911 701 5649</a>
+      </div>
+    </div>
+    <div class="col">
+      <div class="lbl">Elsewhere</div>
+      <div class="val">
+        <a href="https://linkedin.com" target="_blank" rel="noreferrer">LinkedIn</a> ·
+        <a href="https://github.com" target="_blank" rel="noreferrer">GitHub</a> ·
+        <a href="https://x.com" target="_blank" rel="noreferrer">X</a>
+      </div>
+    </div>
+  </div>
+  <footer>
+    <div class="footer-row">
+      <div>&copy; 2026 indi technologies ltd</div>
+      <div>Lagos · 6.43°N, 3.52°E</div>
+      <div><a href="#">Privacy</a> · <a href="#">Terms</a></div>
+    </div>
+  </footer>
 </section>
 
-<script>
-(function () {
-  var quotes = [
-    { who: 'Tomi A.', role: 'Founder · Classfun' },
-    { who: 'Yemi O.', role: 'CEO · GlobalTravel' },
-    { who: 'Ruth E.', role: 'Head of Ops · Earlybean' },
-  ];
-  var current = 0;
-  var items = document.querySelectorAll('.quote-big');
-  var dots = document.querySelectorAll('.quote-dot');
-  var whoEl = document.getElementById('quoteWho');
-
-  function show(n) {
-    items[current].classList.add('quote-big--hidden');
-    dots[current].classList.remove('active');
-    current = n;
-    var el = items[current];
-    el.classList.remove('quote-big--hidden');
-    el.style.animation = 'none';
-    el.offsetHeight;
-    el.style.animation = '';
-    dots[current].classList.add('active');
-    whoEl.innerHTML = '<span class="who">' + quotes[current].who + '</span><span style="color:var(--mute)"> · ' + quotes[current].role + '</span>';
-  }
-
-  dots.forEach(function (btn) {
-    btn.addEventListener('click', function () { show(parseInt(this.dataset.q)); });
-  });
-
-  setInterval(function () { show((current + 1) % quotes.length); }, 6000);
-}());
-
-(function () {
-  var burger = document.getElementById('navBurger');
-  var mobile = document.getElementById('navMobile');
-  burger.addEventListener('click', function () {
-    var open = mobile.classList.toggle('open');
-    burger.setAttribute('aria-expanded', open ? 'true' : 'false');
-    burger.classList.toggle('open', open);
-  });
-  mobile.querySelectorAll('a').forEach(function (a) {
-    a.addEventListener('click', function () {
-      mobile.classList.remove('open');
-      burger.classList.remove('open');
-      burger.setAttribute('aria-expanded', 'false');
-    });
-  });
-}());
-</script>
-<script src="assets/js/effects.js"></script>
+<script src="assets/js/indi-v3.js"></script>
 </body>
 </html>
