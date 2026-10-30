@@ -1,336 +1,502 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="utf-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>indi — Software, shipped.</title>
-<meta name="description" content="indi builds the in-house software ambitious businesses can't buy off the shelf. Product studio, Lagos." />
-<link rel="shortcut icon" href="assets/favicon/favicon-32x32.png" />
-<link rel="apple-touch-icon" sizes="180x180" href="assets/favicon/apple-touch-icon.png" />
-<link rel="icon" type="image/png" sizes="32x32" href="assets/favicon/favicon-32x32.png" />
-<link rel="icon" type="image/png" sizes="16x16" href="assets/favicon/favicon-16x16.png" />
-<link rel="manifest" href="assets/favicon/site.webmanifest" />
-<link rel="preconnect" href="https://fonts.googleapis.com" />
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600&family=Instrument+Serif:ital@0;1&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
-<link rel="stylesheet" href="assets/css/indi-v3.css" />
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Growth Engineering — indi</title>
+<meta name="description" content="indi engineers growth: technical SEO, generative and answer engine optimisation, and paid app acquisition, built by the engineers who ship the product.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Geist:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#0A0A0B; --bg2:#111113; --card:#141416; --line:#232326; --line2:#2E2E33;
+  --ink:#ECECEA; --mute:#A3A3A0; --dim:#8A8A86;
+  --gold:oklch(0.8 0.13 80); --gold-soft:oklch(0.8 0.13 80 / .14);
+  --serif:"Instrument Serif","Times New Roman",serif;
+  --sans:Geist,-apple-system,system-ui,sans-serif;
+  --mono:"JetBrains Mono",ui-monospace,Menlo,monospace;
+  --wrap:1240px;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--sans);font-size:17px;line-height:1.6;font-weight:400;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+body::before{content:"";position:fixed;inset:0;pointer-events:none;z-index:0;opacity:.05;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
+a{color:var(--ink)}
+.wrap{max-width:var(--wrap);margin:0 auto;padding:0 32px;position:relative;z-index:1}
+.mono{font-family:var(--mono);font-size:12px;letter-spacing:.16em;text-transform:uppercase}
+.gold{color:var(--gold)}
+em,.it{font-style:italic;color:var(--gold)}
+h1,h2,h3{font-family:var(--serif);font-weight:400;margin:0;letter-spacing:-.01em}
+h2{font-size:clamp(40px,5.6vw,76px);line-height:1}
+h3{font-size:30px;line-height:1.1}
+p{margin:0}
+.lede{font-size:20px;line-height:1.55;color:var(--mute);max-width:640px}
+.lede strong{color:var(--ink);font-weight:500}
+
+/* nav */
+header{position:sticky;top:0;z-index:50;background:rgba(10,10,11,.78);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-bottom:1px solid var(--line)}
+.nav{display:flex;align-items:center;justify-content:space-between;gap:20px;height:72px}
+.logo{display:inline-flex;align-items:center;text-decoration:none;font-family:var(--sans);font-weight:600;font-size:15px;letter-spacing:-.02em;border:1.5px solid var(--ink);padding:1px 6px 2px;border-radius:3px;line-height:1.1}
+.nav ul{display:flex;gap:34px;list-style:none;margin:0;padding:0}
+.nav ul a{text-decoration:none;color:var(--mute);font-size:14px;transition:color .2s}
+.nav ul a:hover,.nav ul a[aria-current]{color:var(--ink)}
+.nav ul li{position:relative}
+.nav ul a[aria-current]::after{content:"";position:absolute;left:0;right:0;bottom:-6px;height:1px;background:var(--gold)}
+.clock{color:var(--dim);font-family:var(--mono);font-size:12px;letter-spacing:.14em}
+@media (max-width:720px){.nav ul{gap:18px}.clock{display:none}}
+
+/* breadcrumb + hero */
+.hero{position:relative;padding:120px 0 80px;overflow:hidden}
+.hero::before{content:"";position:absolute;top:-260px;left:50%;width:1100px;height:800px;transform:translateX(-40%);background:radial-gradient(closest-side,oklch(0.8 0.13 80 / .16),transparent 70%);pointer-events:none}
+.eyebrow{display:flex;align-items:center;gap:16px;color:var(--dim)}
+.eyebrow::before{content:"";width:48px;height:1px;background:var(--gold)}
+.hero h1{font-size:clamp(68px,13vw,196px);line-height:.88;margin-top:40px;letter-spacing:-.025em}
+.hero h1 em{display:block;padding-left:.9em}
+.hero-foot{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:flex-end;gap:40px;margin-top:64px}
+.hero-foot .lede{max-width:560px}
+.orb{flex:0 0 auto;width:148px;height:148px;border-radius:50%;border:1px solid var(--line2);display:grid;place-items:center;text-align:center;text-decoration:none;font-size:14px;transition:all .35s ease}
+.orb:hover{background:var(--gold);color:var(--bg);border-color:var(--gold);transform:rotate(-8deg)}
+
+/* marquee */
+.marquee{border-top:1px solid var(--line);border-bottom:1px solid var(--line);overflow:hidden;padding:22px 0;position:relative;z-index:1}
+.track{display:flex;gap:40px;width:max-content;animation:scroll 46s linear infinite;font-family:var(--serif);font-size:34px;white-space:nowrap}
+.track span:nth-child(even){color:var(--gold);font-size:18px;align-self:center}
+@keyframes scroll{to{transform:translateX(-50%)}}
+@media (prefers-reduced-motion:reduce){.track{animation:none}}
+
+/* sections */
+section{position:relative;z-index:1}
+.sec{padding:140px 0}
+.sec-head{display:flex;justify-content:space-between;align-items:center;margin-bottom:56px;color:var(--dim)}
+.sec-head .l{display:flex;align-items:center;gap:16px}
+.sec-head .l::before{content:"";width:48px;height:1px;background:var(--gold)}
+.sec-head .r{color:var(--gold)}
+.split{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,420px),1fr));gap:64px;align-items:start}
+.rule{border-top:1px solid var(--line)}
+
+/* stats */
+.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));margin-top:80px;border-top:1px solid var(--line)}
+.stat{padding:36px 28px 36px 0;border-right:1px solid var(--line)}
+.stat:last-child{border-right:0}
+.stat+.stat{padding-left:28px}
+.stat b{display:block;font-family:var(--serif);font-weight:400;font-size:clamp(56px,6vw,88px);line-height:1}
+.stat b i{color:var(--gold)}
+.stat span{display:block;margin-top:14px;color:var(--dim)}
+@media (max-width:640px){.stat,.stat+.stat{border-right:0;padding-left:0;border-bottom:1px solid var(--line)}}
+
+/* problem cards */
+.duo{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,360px),1fr));gap:1px;background:var(--line);border:1px solid var(--line);margin-top:72px}
+.duo article{background:var(--bg);padding:48px 40px}
+.duo .k{color:var(--gold)}
+.duo h3{margin:18px 0 14px}
+.duo p{color:var(--mute)}
+.engines{display:flex;flex-wrap:wrap;gap:10px;margin-top:28px}
+.chip{border:1px solid var(--line2);border-radius:999px;padding:7px 14px;font-size:13px;color:var(--mute)}
+.funnel{margin-top:32px;display:grid;gap:12px}
+.bar{height:10px;border-radius:5px;background:var(--line2)}
+.bar.s{width:2%;min-width:10px;background:var(--gold)}
+.funnel-l{display:flex;justify-content:space-between;color:var(--dim);font-family:var(--mono);font-size:11px;letter-spacing:.12em;text-transform:uppercase}
+
+/* services list */
+.svc{border-top:1px solid var(--line)}
+.svc details{border-bottom:1px solid var(--line)}
+.svc summary{list-style:none;cursor:pointer;display:grid;grid-template-columns:72px 1fr auto;gap:24px;align-items:baseline;padding:40px 0;transition:padding .3s}
+.svc summary::-webkit-details-marker{display:none}
+.svc summary:hover h3{color:var(--gold)}
+.svc summary .n{color:var(--dim)}
+.svc summary h3{font-size:clamp(34px,4.4vw,60px);transition:color .25s}
+.svc summary h3 small{display:block;font-family:var(--sans);font-size:15px;color:var(--mute);margin-top:12px;letter-spacing:0}
+.svc summary .plus{width:44px;height:44px;border:1px solid var(--line2);border-radius:50%;display:grid;place-items:center;transition:transform .3s,background .3s}
+.svc details[open] .plus{transform:rotate(45deg);background:var(--gold);border-color:var(--gold)}
+.svc details[open] .plus svg{stroke:var(--bg)}
+.svc .body{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,260px),1fr));gap:20px 48px;padding:0 0 48px 96px}
+.svc .body div{border-top:1px solid var(--line);padding-top:16px}
+.svc .body b{display:block;font-weight:500;margin-bottom:6px}
+.svc .body p{color:var(--mute);font-size:15px}
+@media (max-width:720px){.svc summary{grid-template-columns:1fr auto}.svc summary .n{display:none}.svc .body{padding-left:0}}
+
+/* compare */
+.cmp{width:100%;border-collapse:collapse;min-width:720px}
+.cmp-box{overflow-x:auto;margin-top:64px;border-top:1px solid var(--line)}
+.cmp th,.cmp td{text-align:left;padding:26px 24px 26px 0;border-bottom:1px solid var(--line);vertical-align:top}
+.cmp thead th{color:var(--dim);font-weight:400}
+.cmp td:first-child{width:24%;font-weight:500}
+.cmp td:nth-child(2){color:var(--dim);width:32%}
+.cmp td:nth-child(3){color:var(--ink)}
+.cmp td:nth-child(3)::before{content:"◆";color:var(--gold);font-size:10px;margin-right:12px;vertical-align:2px}
+
+/* model */
+.model{background:var(--card);border:1px solid var(--line);border-radius:4px;padding:44px}
+.field{margin-bottom:26px}
+.field label{display:flex;justify-content:space-between;align-items:baseline;gap:12px;color:var(--mute);font-size:15px;margin-bottom:6px}
+.field output{font-family:var(--serif);font-size:30px;color:var(--ink)}
+input[type=range]{width:100%;height:44px;accent-color:oklch(0.8 0.13 80);cursor:pointer;margin:0}
+.res{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:1px;background:var(--line);border:1px solid var(--line);margin-top:8px}
+.res div{background:var(--bg);padding:22px}
+.res span{color:var(--dim);display:block}
+.res b{display:block;font-family:var(--serif);font-weight:400;font-size:36px;line-height:1.1;margin-top:8px}
+.res .hi b{color:var(--gold)}
+.note{margin-top:20px;font-size:13px;color:var(--dim)}
+
+/* markets */
+.mk{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,270px),1fr));gap:1px;background:var(--line);border:1px solid var(--line);margin-top:64px}
+.mk div{background:var(--bg);padding:36px 32px}
+.mk h3{font-size:34px}
+.mk .mono{color:var(--gold);display:block;margin-bottom:18px}
+.mk p{color:var(--mute);margin-top:12px;font-size:15px}
+
+/* timeline */
+.tl{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,220px),1fr));gap:32px;margin-top:64px}
+.tl div{border-top:1px solid var(--line2);padding-top:24px;position:relative}
+.tl div::before{content:"";position:absolute;top:-4px;left:0;width:7px;height:7px;background:var(--gold);transform:rotate(45deg)}
+.tl .mono{color:var(--dim)}
+.tl h3{font-size:28px;margin:12px 0 10px}
+.tl p{color:var(--mute);font-size:15px}
+
+/* work */
+.work{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,260px),1fr));gap:1px;background:var(--line);border:1px solid var(--line);margin-top:64px}
+.work a{background:var(--bg);padding:36px 32px;text-decoration:none;display:flex;flex-direction:column;gap:10px;min-height:220px;transition:background .25s}
+.work a:hover{background:var(--card)}
+.work .mono{color:var(--dim)}
+.work h3{font-size:38px}
+.work .u{margin-top:auto;color:var(--gold);font-size:14px}
+blockquote{margin:96px 0 0;max-width:980px}
+blockquote p{font-family:var(--serif);font-size:clamp(36px,4.6vw,64px);line-height:1.05}
+blockquote footer{margin-top:24px;color:var(--dim)}
+.slot{border:1px dashed var(--line2);border-radius:4px;padding:28px;color:var(--dim);margin-top:40px;font-size:15px}
+
+/* engagement */
+.tiers{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr));gap:24px;margin-top:64px}
+.tier{border:1px solid var(--line);padding:40px 36px;display:flex;flex-direction:column;gap:14px;border-radius:4px}
+.tier.f{background:var(--card)}
+.tier .mono{color:var(--dim)}
+.tier h3{font-size:40px}
+.tier .p{font-family:var(--serif);font-size:30px;color:var(--gold)}
+.tier ul{margin:6px 0 0;padding:0;list-style:none;display:grid;gap:10px;color:var(--mute);font-size:15px}
+.tier li::before{content:"—";color:var(--gold);margin-right:10px}
+
+/* cta */
+.cta{padding:160px 0 120px;border-top:1px solid var(--line);overflow:hidden}
+.cta::before{content:"";position:absolute;bottom:-300px;right:-200px;width:900px;height:700px;background:radial-gradient(closest-side,oklch(0.8 0.13 80 / .14),transparent 70%);pointer-events:none}
+.cta h2{font-size:clamp(64px,11vw,168px);line-height:.9}
+.form{display:grid;gap:14px;max-width:520px}
+.form label{color:var(--mute);font-size:14px}
+.form input,.form textarea{font:inherit;color:var(--ink);background:transparent;border:0;border-bottom:1px solid var(--line2);padding:12px 0;min-height:44px;outline:none;transition:border-color .2s}
+.form input:focus,.form textarea:focus{border-color:var(--gold)}
+.btn{justify-self:start;margin-top:16px;font:inherit;font-weight:500;background:var(--gold);color:var(--bg);border:0;border-radius:999px;padding:16px 30px;min-height:48px;cursor:pointer;transition:transform .2s}
+.btn:hover{transform:translateY(-2px)}
+.contact{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:32px;margin-top:100px;padding-top:40px;border-top:1px solid var(--line)}
+.contact .mono{color:var(--dim);display:block;margin-bottom:10px}
+.contact p{color:var(--ink);font-size:15px}
+footer.site{border-top:1px solid var(--line);padding:28px 0;color:var(--dim)}
+footer.site .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px}
+:focus-visible{outline:2px solid var(--gold);outline-offset:3px}
+.reveal{opacity:0;transform:translateY(24px);transition:opacity .9s ease,transform .9s ease}
+.reveal.in{opacity:1;transform:none}
+@media (prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none}}
+</style>
 </head>
 <body>
 
-<!-- Film grain -->
-<div class="grain"></div>
-
-<!-- Ambient orb -->
-<div class="orb" id="orb"></div>
-
-<!-- Custom cursor -->
-<div class="cursor-dot" id="cursorDot"></div>
-<div class="cursor-ring" id="cursorRing"></div>
-
-<!-- Preloader -->
-<div class="preloader" id="preloader">
-  <div class="word"><span>indi — lagos</span></div>
-  <div class="pct" id="preloaderPct">0<em>%</em></div>
-</div>
-
-<!-- NAV -->
-<nav class="nav" id="nav">
-  <div class="shell nav-row">
-    <a href="#top" class="nav-logo" aria-label="indi home">
-      <img src="assets/images/indi-logo.png" alt="indi" />
-    </a>
-    <div class="nav-links">
-      <a href="#work">Work</a>
-      <a href="#services">Services</a>
-      <a href="#studio">Studio</a>
-      <a href="#contact">Contact</a>
-    </div>
-    <div class="nav-time" id="navTime">Lagos — 00:00</div>
-  </div>
-</nav>
-
-<!-- HERO -->
-<header class="hero shell" id="top">
-  <div>
-    <div class="hero-label">Product studio — Lagos, NG</div>
-    <h1 class="hero-mega" aria-label="Software, shipped." id="heroMega">
-      <span class="ln" id="heroLine1"></span>
-      <span class="ln ln-2" id="heroLine2"></span>
-    </h1>
-    <div class="hero-base">
-      <p class="tag"><b>indi</b> builds the in-house software ambitious businesses can&rsquo;t buy off the shelf.</p>
-      <div id="magWrap" style="will-change:transform;width:fit-content">
-        <a href="#contact" class="btn-mag">
-          <span class="fill"></span>
-          <span class="lbl">Start a project</span>
-        </a>
-      </div>
-    </div>
+<header>
+  <div class="wrap nav">
+    <a class="logo" href="/" aria-label="indi home">indi</a>
+    <nav aria-label="Main">
+      <ul>
+        <li><a href="/#work">Work</a></li>
+        <li><a href="/#services" aria-current="page">Services</a></li>
+        <li><a href="/#studio">Studio</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+    <span class="clock" id="clock">Lagos — --:--</span>
   </div>
 </header>
 
-<!-- VELOCITY MARQUEE -->
-<div class="vmarquee">
-  <div class="vmarquee-track" id="marqueeTrack">
-    <span>Mobile</span><span class="sp">◆</span>
-    <em>NFC</em><span class="sp">◆</span>
-    <span>Web</span><span class="sp">◆</span>
-    <em>Wearables</em><span class="sp">◆</span>
-    <span>Enterprise</span><span class="sp">◆</span>
-    <em>IoT</em><span class="sp">◆</span>
-    <span>Payments</span><span class="sp">◆</span>
-    <span>Mobile</span><span class="sp">◆</span>
-    <em>NFC</em><span class="sp">◆</span>
-    <span>Web</span><span class="sp">◆</span>
-    <em>Wearables</em><span class="sp">◆</span>
-    <span>Enterprise</span><span class="sp">◆</span>
-    <em>IoT</em><span class="sp">◆</span>
-    <span>Payments</span><span class="sp">◆</span>
+<main>
+<!-- HERO -->
+<section class="hero">
+  <div class="wrap">
+    <p class="eyebrow mono">Services — Growth Engineering</p>
+    <h1>Growth,<em>engineered.</em></h1>
+    <div class="hero-foot">
+      <p class="lede"><strong>indi</strong> builds the search architecture that gets you ranked by Google, cited by AI and read aloud by voice assistants. Then we engineer the funnel that turns those readers into app users who stay. One team writes the code, buys the media and reads the data, from Lagos to the rest of the world.</p>
+      <a class="orb" href="#contact">Start a growth audit</a>
+    </div>
+  </div>
+</section>
+
+<div class="marquee" aria-hidden="true">
+  <div class="track">
+    <span>Technical SEO</span><span>◆</span><span>Generative Engine Optimisation</span><span>◆</span><span>Answer Engine Optimisation</span><span>◆</span><span>App Growth</span><span>◆</span><span>Deep Linking</span><span>◆</span><span>Attribution</span><span>◆</span><span>App Store Optimisation</span><span>◆</span><span>Newsroom Enablement</span><span>◆</span>
+    <span>Technical SEO</span><span>◆</span><span>Generative Engine Optimisation</span><span>◆</span><span>Answer Engine Optimisation</span><span>◆</span><span>App Growth</span><span>◆</span><span>Deep Linking</span><span>◆</span><span>Attribution</span><span>◆</span><span>App Store Optimisation</span><span>◆</span><span>Newsroom Enablement</span><span>◆</span>
   </div>
 </div>
 
-<!-- STUDIO -->
-<section class="sec shell" id="studio">
-  <div class="sec-head">
-    <span class="sec-label">The studio</span>
-    <span class="idx"><em>01</em> — 04</span>
-  </div>
-  <p class="about-state" id="studioStatement">
-    <span class="dim">Eight years.</span> <span class="dim">Forty products.</span> <span class="dim">One obsession —</span> <em>software that ships.</em>
-  </p>
-  <div class="about-figures">
-    <div class="fig">
-      <div class="n"><span class="counter" data-to="40" data-dur="1600">0</span><em>+</em></div>
-      <div class="d">Products shipped</div>
+<!-- THESIS -->
+<section class="sec">
+  <div class="wrap">
+    <div class="sec-head mono"><span class="l">The thesis</span><span class="r">01 — 08</span></div>
+    <div class="split reveal">
+      <h2>Agencies can’t touch the code. Dev shops can’t buy media. <em>We do both.</em></h2>
+      <div>
+        <p class="lede">Most of modern growth now happens below the surface: in schema, indexing pipes, SDKs, deep links and attribution. That work usually falls between a marketing agency and a development team, and that gap is where budget leaks.</p>
+        <p class="lede" style="margin-top:20px">indi is a product studio first. We’ve spent eight years shipping software that has to perform in the real world. Now we put that same engineering to work on growth, inside any stack, from the first commit to the monthly board report.</p>
+      </div>
     </div>
-    <div class="fig">
-      <div class="n"><span class="counter" data-to="12" data-dur="1300">0</span></div>
-      <div class="d">Senior engineers</div>
-    </div>
-    <div class="fig">
-      <div class="n"><span class="counter" data-to="3" data-dur="1000">0</span></div>
-      <div class="d">Continents</div>
+    <div class="stats reveal">
+      <div class="stat"><b>40<i>+</i></b><span class="mono">Products shipped</span></div>
+      <div class="stat"><b>12</b><span class="mono">Senior engineers</span></div>
+      <div class="stat"><b>3</b><span class="mono">Continents</span></div>
+      <div class="stat"><b>8</b><span class="mono">Years shipping</span></div>
     </div>
   </div>
 </section>
 
-<!-- SERVICES -->
-<section class="sec shell" id="services">
-  <div class="sec-head">
-    <span class="sec-label">What we make</span>
-    <span class="idx"><em>02</em> — 04</span>
-  </div>
-  <div class="svc-list">
-    <div class="rv">
-      <a class="svc-row" href="#contact">
-        <span class="bg"></span>
-        <span class="no">/01</span>
-        <span class="ttl">Mobile <em>&amp;</em> Web</span>
-        <span class="hint">Enquire <svg width="11" height="11" viewBox="0 0 14 14" fill="none"><path d="M3 11L11 3M11 3H4M11 3V10" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
-      </a>
-    </div>
-    <div class="rv" style="transition-delay:90ms">
-      <a class="svc-row" href="#contact">
-        <span class="bg"></span>
-        <span class="no">/02</span>
-        <span class="ttl">NFC <em>&amp;</em> Wearables</span>
-        <span class="hint">Enquire <svg width="11" height="11" viewBox="0 0 14 14" fill="none"><path d="M3 11L11 3M11 3H4M11 3V10" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
-      </a>
-    </div>
-    <div class="rv" style="transition-delay:180ms">
-      <a class="svc-row" href="#contact">
-        <span class="bg"></span>
-        <span class="no">/03</span>
-        <span class="ttl">Enterprise <em>Systems</em></span>
-        <span class="hint">Enquire <svg width="11" height="11" viewBox="0 0 14 14" fill="none"><path d="M3 11L11 3M11 3H4M11 3V10" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
-      </a>
+<!-- PROBLEM -->
+<section class="sec rule">
+  <div class="wrap">
+    <div class="sec-head mono"><span class="l">The problem</span><span class="r">02 — 08</span></div>
+    <h2 class="reveal" style="max-width:1000px">Being found and being kept are <em>one problem.</em> Most teams treat them as two.</h2>
+    <div class="duo reveal">
+      <article>
+        <span class="mono k">Discovery</span>
+        <h3>Search no longer ends on a results page.</h3>
+        <p>People now get answers from AI Overviews, chat assistants and voice. If those engines don’t cite you, you’re invisible, even when you rank.</p>
+        <div class="engines"><span class="chip">Google Search</span><span class="chip">Google News &amp; Discover</span><span class="chip">AI Overviews</span><span class="chip">ChatGPT</span><span class="chip">Gemini</span><span class="chip">Perplexity</span><span class="chip">Siri &amp; Assistant</span></div>
+      </article>
+      <article>
+        <span class="mono k">Retention</span>
+        <h3>The leaky web-to-app funnel.</h3>
+        <p>A pattern we see often: tens of thousands of loyal web readers and only a few hundred app installs. That’s attention you have earned but don’t yet own.</p>
+        <div class="funnel" aria-hidden="true">
+          <div class="bar"></div><div class="bar s"></div>
+          <div class="funnel-l"><span>Web readers</span><span>App users</span></div>
+        </div>
+      </article>
     </div>
   </div>
 </section>
 
-<!-- WORK -->
-<section class="sec shell" id="work">
-  <div class="sec-head">
-    <span class="sec-label">Selected work</span>
-    <span class="idx"><em>03</em> — 04</span>
-  </div>
-  <div>
-
-    <!-- 01 Classfun -->
-    <div class="work-item">
-      <div class="work-info">
-        <span class="rv-line work-no"><span>/01</span></span>
-        <h3 class="rv-line work-name"><span style="transition-delay:80ms">Class<em>fun</em></span></h3>
-        <span class="rv-line work-kind"><span style="transition-delay:160ms">Mobile · 500+ schools</span></span>
-        <div class="rv" style="transition-delay:240ms">
-          <a class="work-visit" href="https://useclassfun.com" target="_blank" rel="noreferrer">
-            useclassfun.com
-            <svg width="13" height="13" viewBox="0 0 14 14" fill="none"><path d="M3 11L11 3M11 3H4M11 3V10" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/></svg>
-          </a>
+<!-- WHAT WE BUILD -->
+<section class="sec rule" id="capabilities">
+  <div class="wrap">
+    <div class="sec-head mono"><span class="l">What we build</span><span class="r">03 — 08</span></div>
+    <h2 class="reveal" style="max-width:900px;margin-bottom:64px">Four engines, <em>one system.</em></h2>
+    <div class="svc">
+      <details open>
+        <summary><span class="n mono">/01</span><h3>Search architecture<small>Technical SEO built for publishers and high-velocity content</small></h3><span class="plus" aria-hidden="true"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="#ECECEA" stroke-width="1.5"><path d="M8 2v12M2 8h12"/></svg></span></summary>
+        <div class="body">
+          <div><b>Instant indexing</b><p>IndexNow and News sitemaps push every story to search engines the moment it’s published.</p></div>
+          <div><b>Publisher schema</b><p>NewsArticle, LiveBlogPosting and VideoObject JSON-LD built for Top Stories, News and Discover eligibility.</p></div>
+          <div><b>Speed at the edge</b><p>Edge caching and Core Web Vitals engineering for fast loads on African mobile networks and global connections.</p></div>
+          <div><b>Zero-loss migrations</b><p>Domain consolidation and 301 mapping, tested before launch so rankings and links carry over.</p></div>
         </div>
-      </div>
-      <div class="work-frame">
-        <div class="plate">
-          <div class="shot-frame">
-            <div class="shot-chrome">
-              <div class="shot-dots"><span></span><span></span><span></span></div>
-              <div class="shot-url">useclassfun.com</div>
-            </div>
-            <div class="shot-img">
-              <img src="assets/images/shots/classfun.png" alt="Classfun — school management platform" loading="lazy" />
-            </div>
-          </div>
+      </details>
+      <details>
+        <summary><span class="n mono">/02</span><h3>Generative engine optimisation<small>Become the source AI models cite</small></h3><span class="plus" aria-hidden="true"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="#ECECEA" stroke-width="1.5"><path d="M8 2v12M2 8h12"/></svg></span></summary>
+        <div class="body">
+          <div><b>Citation-ready templates</b><p>Article structures with clear claims, data points and attributed quotes that language models can extract and credit.</p></div>
+          <div><b>Entity authority</b><p>Knowledge Graph, Wikidata and sameAs alignment, so your brand reads as one verified source everywhere.</p></div>
+          <div><b>E-E-A-T by design</b><p>Structured author profiles and credentials that prove who wrote the story and why they can be trusted.</p></div>
+          <div><b>AI visibility tracking</b><p>We track how often you’re cited in ChatGPT, Perplexity and Gemini answers, not just where you rank.</p></div>
         </div>
-        <div class="veil"></div>
-      </div>
-    </div>
-
-    <!-- 02 Bloomdata / FastFuel -->
-    <div class="work-item">
-      <div class="work-info">
-        <span class="rv-line work-no"><span>/02</span></span>
-        <h3 class="rv-line work-name"><span style="transition-delay:80ms">Bloom<em>data</em></span></h3>
-        <span class="rv-line work-kind"><span style="transition-delay:160ms">FastFuel · Fuel credit</span></span>
-        <div class="rv" style="transition-delay:240ms">
-          <a class="work-visit" href="https://bloomdata.ng" target="_blank" rel="noreferrer">
-            bloomdata.ng
-            <svg width="13" height="13" viewBox="0 0 14 14" fill="none"><path d="M3 11L11 3M11 3H4M11 3V10" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/></svg>
-          </a>
+      </details>
+      <details>
+        <summary><span class="n mono">/03</span><h3>Answer engine optimisation<small>Win the answer before the click</small></h3><span class="plus" aria-hidden="true"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="#ECECEA" stroke-width="1.5"><path d="M8 2v12M2 8h12"/></svg></span></summary>
+        <div class="body">
+          <div><b>Key Takeaways modules</b><p>Summary blocks at the top of each story, designed to capture AI Overviews and featured snippets.</p></div>
+          <div><b>Speakable markup</b><p>Speakable markup that makes your journalism readable by Google Assistant, Siri and smart speakers.</p></div>
+          <div><b>Q&amp;A and explainers</b><p>Formats built around the questions your audience actually asks, so you’re the answer, not the footnote.</p></div>
         </div>
-      </div>
-      <div class="work-frame">
-        <div class="plate">
-          <div class="shot-frame">
-            <div class="shot-chrome">
-              <div class="shot-dots"><span></span><span></span><span></span></div>
-              <div class="shot-url">bloomdata.ng</div>
-            </div>
-            <div class="shot-img">
-              <img src="assets/images/shots/bloomdata.png" alt="Bloomdata — FastFuel fuel credit platform" loading="lazy" />
-            </div>
-          </div>
+      </details>
+      <details>
+        <summary><span class="n mono">/04</span><h3>App growth engine<small>Paid acquisition, wired to the product</small></h3><span class="plus" aria-hidden="true"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="#ECECEA" stroke-width="1.5"><path d="M8 2v12M2 8h12"/></svg></span></summary>
+        <div class="body">
+          <div><b>Channel discipline</b><p>Google App Campaigns and Meta scored by market, device mix and tracking limits. We fund what converts and cut what doesn’t.</p></div>
+          <div><b>Web-to-app bridge</b><p>Smart banners, deferred deep links and article-to-app handoff, so readers land on the exact story inside the app.</p></div>
+          <div><b>Attribution you can trust</b><p>MMP integration, SKAdNetwork and Aggregated Event Measurement set up properly, so iOS spend isn’t guesswork.</p></div>
+          <div><b>Store conversion</b><p>Store listing tests, screenshots and keywords that turn store visits into installs before you pay for more traffic.</p></div>
+          <div><b>Creative that moves</b><p>Fast, video-first ads cut from your own breaking stories and tested every week.</p></div>
+          <div><b>Retention loops</b><p>Onboarding, topic-based push notifications and re-engagement, so installs become daily readers.</p></div>
         </div>
-        <div class="veil"></div>
-      </div>
-    </div>
-
-    <!-- 03 Earlybean -->
-    <div class="work-item">
-      <div class="work-info">
-        <span class="rv-line work-no"><span>/03</span></span>
-        <h3 class="rv-line work-name"><span style="transition-delay:80ms">Early<em>bean</em></span></h3>
-        <span class="rv-line work-kind"><span style="transition-delay:160ms">Web · Subscriptions</span></span>
-        <div class="rv" style="transition-delay:240ms">
-          <a class="work-visit" href="https://earlybean.co" target="_blank" rel="noreferrer">
-            earlybean.co
-            <svg width="13" height="13" viewBox="0 0 14 14" fill="none"><path d="M3 11L11 3M11 3H4M11 3V10" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/></svg>
-          </a>
-        </div>
-      </div>
-      <div class="work-frame">
-        <div class="plate">
-          <div class="shot-frame">
-            <div class="shot-chrome">
-              <div class="shot-dots"><span></span><span></span><span></span></div>
-              <div class="shot-url">earlybean.co</div>
-            </div>
-            <div class="shot-img">
-              <img src="assets/images/shots/earlybean.png" alt="Earlybean — coffee subscription marketplace" loading="lazy" />
-            </div>
-          </div>
-        </div>
-        <div class="veil"></div>
-      </div>
-    </div>
-
-    <!-- 04 House of Awesome -->
-    <div class="work-item">
-      <div class="work-info">
-        <span class="rv-line work-no"><span>/04</span></span>
-        <h3 class="rv-line work-name"><span style="transition-delay:80ms">House of <em>Awesome</em></span></h3>
-        <span class="rv-line work-kind"><span style="transition-delay:160ms">E-commerce · Lagos</span></span>
-        <div class="rv" style="transition-delay:240ms">
-          <a class="work-visit" href="https://houseofawesome.com.ng" target="_blank" rel="noreferrer">
-            houseofawesome.com.ng
-            <svg width="13" height="13" viewBox="0 0 14 14" fill="none"><path d="M3 11L11 3M11 3H4M11 3V10" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/></svg>
-          </a>
-        </div>
-      </div>
-      <div class="work-frame">
-        <div class="plate">
-          <div class="shot-frame">
-            <div class="shot-chrome">
-              <div class="shot-dots"><span></span><span></span><span></span></div>
-              <div class="shot-url">houseofawesome.com.ng</div>
-            </div>
-            <div class="shot-img">
-              <img src="assets/images/shots/houseofawesome.png" alt="House of Awesome — fashion e-commerce" loading="lazy" />
-            </div>
-          </div>
-        </div>
-        <div class="veil"></div>
-      </div>
-    </div>
-
-  </div>
-</section>
-
-<!-- QUOTE -->
-<section class="sec shell quote-sec" id="voices">
-  <div class="sec-head">
-    <span class="sec-label">From founders</span>
-    <span class="idx"><em>04</em> — 04</span>
-  </div>
-  <div class="rv">
-    <blockquote class="quote-mega" id="quoteMega"></blockquote>
-    <div class="quote-by">
-      <span class="ln"></span>
-      <b id="quoteWho"></b><span id="quoteRole"></span>
-      <div class="quote-nav" id="quoteNav"></div>
+      </details>
     </div>
   </div>
 </section>
 
-<!-- CONTACT -->
-<section class="sec shell contact-sec" id="contact">
-  <div class="sec-head">
-    <span class="sec-label">New business</span>
-    <span class="idx"><em>05</em></span>
-  </div>
-  <h2 class="contact-mega">
-    <span class="rv-line"><span>Got a brief?</span></span>
-    <em><span class="rv-line" style="transition-delay:140ms"><span><a href="mailto:hello@indi.com.ng">Say hello.</a></span></span></em>
-  </h2>
-  <div class="contact-rows">
-    <div class="col">
-      <div class="lbl">Studio</div>
-      <div class="val">Megamound, Ikate-Elegushi,<br />Lagos, Nigeria</div>
+<!-- DIFFERENCE -->
+<section class="sec rule">
+  <div class="wrap">
+    <div class="sec-head mono"><span class="l">The indi difference</span><span class="r">04 — 08</span></div>
+    <div class="split reveal">
+      <h2>We don’t sell installs. <em>We sell users who stay.</em></h2>
+      <p class="lede">Installs are easy to buy and easy to report. They’re also easy to waste. Every indi growth programme is measured against the number that pays your bills: retained, active users and the cost of each one.</p>
     </div>
-    <div class="col">
-      <div class="lbl">Direct</div>
-      <div class="val">
-        <a href="mailto:hello@indi.com.ng">hello@indi.com.ng</a><br />
-        <a href="tel:+2349117015649">+234 911 701 5649</a>
-      </div>
-    </div>
-    <div class="col">
-      <div class="lbl">Elsewhere</div>
-      <div class="val">
-        <a href="https://linkedin.com" target="_blank" rel="noreferrer">LinkedIn</a> ·
-        <a href="https://github.com" target="_blank" rel="noreferrer">GitHub</a> ·
-        <a href="https://x.com" target="_blank" rel="noreferrer">X</a>
-      </div>
+    <div class="cmp-box reveal">
+      <table class="cmp">
+        <thead><tr><th class="mono" scope="col">Question</th><th class="mono" scope="col">The usual approach</th><th class="mono" scope="col">indi</th></tr></thead>
+        <tbody>
+          <tr><td>What we optimise for</td><td>Cost per install</td><td>Cost per retained user, with day-30 active users as the north-star metric</td></tr>
+          <tr><td>How markets are planned</td><td>One country, one plan</td><td>Market-by-market scoring for home audiences and diaspora, each with its own channel mix</td></tr>
+          <tr><td>How iOS is measured</td><td>Cut it, or spend blind</td><td>SKAdNetwork and AEM configured, so premium iPhone audiences can be bought with confidence</td></tr>
+          <tr><td>How web becomes app</td><td>A download banner</td><td>Deferred deep links that carry a reader’s story, topic and context into the app</td></tr>
+          <tr><td>How the newsroom learns</td><td>A one-off workshop</td><td>A living editorial playbook, CMS guardrails and monthly coaching tied to performance data</td></tr>
+          <tr><td>What a report proves</td><td>Downloads went up</td><td>Incremental lift, cohort retention and revenue per user, reviewed with you every month</td></tr>
+        </tbody>
+      </table>
     </div>
   </div>
-  <footer>
-    <div class="footer-row">
-      <div>&copy; 2026 indi technologies ltd</div>
-      <div>Lagos · 6.43°N, 3.52°E</div>
-      <div><a href="#">Privacy</a> · <a href="#">Terms</a></div>
-    </div>
-  </footer>
 </section>
 
-<script src="assets/js/indi-v3.js"></script>
+<!-- MODEL -->
+<section class="sec rule" id="model">
+  <div class="wrap">
+    <div class="sec-head mono"><span class="l">Model your return</span><span class="r">05 — 08</span></div>
+    <div class="split">
+      <div class="reveal">
+        <h2>Every naira and dollar, <em>accounted for.</em></h2>
+        <p class="lede" style="margin-top:28px">Set your own assumptions and see what a campaign is really worth once retention is counted. We pressure-test these same numbers against your data in the audit.</p>
+      </div>
+      <form class="model reveal" aria-label="Return model" onsubmit="return false">
+        <div class="field"><label for="b">Monthly media budget <output id="bo" for="b">$2,500</output></label><input id="b" type="range" min="500" max="25000" step="250" value="2500"></div>
+        <div class="field"><label for="c">Blended cost per install <output id="co" for="c">$0.23</output></label><input id="c" type="range" min="0.10" max="2.00" step="0.01" value="0.23"></div>
+        <div class="field"><label for="r">Day-30 retention <output id="ro" for="r">20%</output></label><input id="r" type="range" min="5" max="60" step="1" value="20"></div>
+        <div class="res" aria-live="polite">
+          <div><span class="mono">Installs / month</span><b id="i">10,870</b></div>
+          <div class="hi"><span class="mono">Retained users</span><b id="u">2,174</b></div>
+          <div><span class="mono">Cost / retained user</span><b id="k">$1.15</b></div>
+        </div>
+        <p class="note">An illustration based on your inputs, not a forecast. Starting values reflect a blended Google and Meta mix in an Android-led market.</p>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- GLOBAL -->
+<section class="sec rule">
+  <div class="wrap">
+    <div class="sec-head mono"><span class="l">Global by design</span><span class="r">06 — 08</span></div>
+    <div class="split reveal">
+      <h2>Built in Lagos. <em>Planned for every market.</em></h2>
+      <p class="lede">Device share, privacy rules, languages and the AI assistants people actually use all change from one country to the next. So we score every market separately and build the channel mix that wins there.</p>
+    </div>
+    <div class="mk reveal">
+      <div><span class="mono">Home market</span><h3>Android-first Africa</h3><p>High-volume Google and Meta app campaigns, lightweight pages and data-conscious creative for mobile-first readers.</p></div>
+      <div><span class="mono">Diaspora</span><h3>UK, US &amp; Europe</h3><p>iOS-heavy, high-value audiences reached with privacy-safe measurement and stories from home.</p></div>
+      <div><span class="mono">Expansion</span><h3>Pan-African reach</h3><p>Multilingual schema, regional entities and market-by-market search coverage as your newsroom grows.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- PROCESS -->
+<section class="sec rule">
+  <div class="wrap">
+    <div class="sec-head mono"><span class="l">How we work</span><span class="r">07 — 08</span></div>
+    <h2 class="reveal" style="max-width:900px">From audit to scaled growth in <em>eight weeks.</em></h2>
+    <div class="tl reveal">
+      <div><span class="mono">Weeks 1–2</span><h3>Audit &amp; foundations</h3><p>Stack and analytics audit, IndexNow, News sitemaps, edge caching, Core Web Vitals, MMP and SDK setup.</p></div>
+      <div><span class="mono">Weeks 3–4</span><h3>Templates &amp; newsroom</h3><p>Answer and citation templates, Speakable and author schema, hands-on SEO, GEO and AEO workshops.</p></div>
+      <div><span class="mono">Weeks 5–6</span><h3>Migrate &amp; launch</h3><p>Domain consolidation, entity alignment, deep links live, Google and Meta app campaigns launched.</p></div>
+      <div><span class="mono">Weeks 7–8</span><h3>Automate &amp; scale</h3><p>AI-assisted CMS metadata, budget moved to winning channels, retention loops on, first monthly review.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- PROOF -->
+<section class="sec rule">
+  <div class="wrap">
+    <div class="sec-head mono"><span class="l">Proof</span><span class="r">08 — 08</span></div>
+    <h2 class="reveal" style="max-width:960px">We’ve shipped the products. <em>Now we grow them.</em></h2>
+    <div class="work reveal">
+      <a href="https://useclassfun.com"><span class="mono">Mobile · 500+ schools</span><h3>Classfun</h3><span class="u">useclassfun.com ↗</span></a>
+      <a href="https://bloomdata.ng"><span class="mono">FastFuel · Fuel credit</span><h3>Bloomdata</h3><span class="u">bloomdata.ng ↗</span></a>
+      <a href="https://earlybean.co"><span class="mono">Web · Subscriptions</span><h3>Earlybean</h3><span class="u">earlybean.co ↗</span></a>
+      <a href="https://houseofawesome.com.ng"><span class="mono">E-commerce · Lagos</span><h3>House of Awesome</h3><span class="u">houseofawesome.com.ng ↗</span></a>
+    </div>
+    <div class="slot">[GROWTH CASE STUDY — client, challenge, what we built, result. Example: “+[X]% organic sessions in [Y] weeks” or “[X] app installs at $[Y] CPI, [Z]% day-30 retention”.]</div>
+    <blockquote class="reveal">
+      <p>“Same brief, half the timeline, <em>twice the polish.</em>”</p>
+      <footer class="mono">Tomi A. — Founder, Classfun</footer>
+    </blockquote>
+  </div>
+</section>
+
+<!-- ENGAGEMENT -->
+<section class="sec rule">
+  <div class="wrap">
+    <div class="sec-head mono"><span class="l">Engagement</span><span class="r">◆</span></div>
+    <h2 class="reveal" style="max-width:960px">Clear fees. <em>Media you can see.</em></h2>
+    <div class="tiers reveal">
+      <div class="tier f"><span class="mono">Phase 1 · One-time</span><h3>Build</h3><span class="p">[YOUR FEE]</span>
+        <ul><li>Technical SEO, GEO and AEO implementation</li><li>Domain migration and entity setup</li><li>SDK, attribution and deep-link engineering</li><li>Newsroom training and editorial playbook</li></ul></div>
+      <div class="tier"><span class="mono">Phase 2 · Monthly</span><h3>Grow</h3><span class="p">[YOUR RETAINER]</span>
+        <ul><li>Campaign management and creative testing</li><li>Schema upkeep and crawl fixes</li><li>Ongoing editorial coaching</li><li>Monthly performance and cohort review</li></ul></div>
+      <div class="tier"><span class="mono">Pass-through</span><h3>Media &amp; tools</h3><span class="p">At cost</span>
+        <ul><li>Ad spend paid into your own ad accounts</li><li>SEO and AI-visibility tooling</li><li>CDN and edge infrastructure</li><li>Scaled only when the numbers say so</li></ul></div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta" id="contact">
+  <div class="wrap">
+    <p class="eyebrow mono">New business — growth</p>
+    <div class="split" style="margin-top:40px;align-items:end">
+      <h2>Got a growth brief? <em>Say hello.</em></h2>
+      <form class="form" id="f">
+        <label for="n">Name</label><input id="n" name="name" autocomplete="name" required>
+        <label for="e">Work email</label><input id="e" name="email" type="email" autocomplete="email" required>
+        <label for="m">What do you want to grow?</label><textarea id="m" name="message" rows="3"></textarea>
+        <button class="btn" type="submit" id="fb">Request a growth audit</button>
+      </form>
+    </div>
+    <div class="contact">
+      <div><span class="mono">Studio</span><p>Megamound, Ikate-Elegushi,<br>Lagos, Nigeria</p></div>
+      <div><span class="mono">Direct</span><p><a href="mailto:hello@indi.com.ng">hello@indi.com.ng</a><br><a href="tel:+2349117015649">+234 911 701 5649</a></p></div>
+      <div><span class="mono">Elsewhere</span><p>LinkedIn · GitHub · X</p></div>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer class="site">
+  <div class="wrap mono"><span>© 2026 indi Technologies Ltd</span><span>Lagos · 6.43°N, 3.52°E</span><span>Privacy · Terms</span></div>
+</footer>
+
+<script>
+(function(){
+  // Lagos clock
+  var c=document.getElementById('clock');
+  function t(){try{c.textContent='Lagos — '+new Intl.DateTimeFormat('en-GB',{timeZone:'Africa/Lagos',hour:'2-digit',minute:'2-digit'}).format(new Date());}catch(e){}}
+  t();setInterval(t,15000);
+
+  // model
+  var b=document.getElementById('b'),cp=document.getElementById('c'),r=document.getElementById('r');
+  function f(n){return Math.round(n).toLocaleString('en-US');}
+  function calc(){
+    var B=+b.value,C=+cp.value,R=+r.value/100,I=B/C,U=I*R;
+    document.getElementById('bo').textContent='$'+f(B);
+    document.getElementById('co').textContent='$'+C.toFixed(2);
+    document.getElementById('ro').textContent=Math.round(R*100)+'%';
+    document.getElementById('i').textContent=f(I);
+    document.getElementById('u').textContent=f(U);
+    document.getElementById('k').textContent='$'+(U?(B/U).toFixed(2):'—');
+  }
+  [b,cp,r].forEach(function(x){x.addEventListener('input',calc);});calc();
+
+  // form (wire to your backend)
+  document.getElementById('f').addEventListener('submit',function(e){e.preventDefault();document.getElementById('fb').textContent='Thank you — we’ll be in touch';});
+
+  // reveal on scroll
+  var els=document.querySelectorAll('.reveal');
+  if('IntersectionObserver' in window){
+    var io=new IntersectionObserver(function(es){es.forEach(function(x){if(x.isIntersecting){x.target.classList.add('in');io.unobserve(x.target);}});},{threshold:.12});
+    els.forEach(function(el){io.observe(el);});
+  } else els.forEach(function(el){el.classList.add('in');});
+})();
+</script>
 </body>
 </html>
